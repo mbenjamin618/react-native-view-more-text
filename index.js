@@ -1,5 +1,6 @@
 import React from 'react';
 import { Text, View } from 'react-native';
+import _ from 'lodash'
 
 const emptyFunc = ()=>{};
 
@@ -9,11 +10,12 @@ export default ViewMoreText = React.createClass({
     renderViewLess: React.PropTypes.func,
     afterCollapse: React.PropTypes.func,
     afterExpand: React.PropTypes.func,
-    numberOfLines: React.PropTypes.number.isRequired
+    numberOfLines: React.PropTypes.number.isRequired,
+    moreTextOnPress: React.PropType.func
   },
   isTruncated: false,
   originalHeight: 0,
-  shouldShowMore: false, 
+  shouldShowMore: false,
   contentHeight: 0,
   isInit: false,
 
@@ -62,7 +64,7 @@ export default ViewMoreText = React.createClass({
       })
     }
   },
-  
+
   setOriginalHeight(height){
     if(this.originalHeight === 0){
       this.originalHeight = height;
@@ -80,9 +82,13 @@ export default ViewMoreText = React.createClass({
   },
 
   onPressMore(){
-    this.setState({
-      numberOfLines: null
-    });
+    if (_.isFunction(this.props.moreTextOnPress)) {
+      this.props.moreTextOnPress()
+    } else {
+      this.setState({
+        numberOfLines: null
+      });
+    }
   },
 
   onPressLess(){
@@ -98,7 +104,7 @@ export default ViewMoreText = React.createClass({
       </Text>
     )
   },
-  
+
   renderViewLess(){
     return (
       <Text onPress={this.onPressLess}>
@@ -141,4 +147,3 @@ export default ViewMoreText = React.createClass({
   }
 
 })
-
