@@ -10,7 +10,7 @@ export default ViewMoreText = React.createClass({
     afterCollapse: React.PropTypes.func,
     afterExpand: React.PropTypes.func,
     numberOfLines: React.PropTypes.number.isRequired,
-    moreTextOnPress: React.PropType.func
+    moreTextOnPress: React.PropTypes.func
   },
   isTruncated: false,
   originalHeight: 0,
