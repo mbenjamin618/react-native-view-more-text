@@ -19,8 +19,5 @@
     "text",
     "react-native-view-more-text"
   ],
-  "author": "nlt2390",
-  "dependencies": {
-    "lodash": "^4.17.4"
-  }
+  "author": "nlt2390"
 }

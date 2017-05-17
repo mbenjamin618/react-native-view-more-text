@@ -1,6 +1,5 @@
 import React from 'react';
 import { Text, View } from 'react-native';
-import _ from 'lodash'
 
 const emptyFunc = ()=>{};
 
@@ -82,7 +81,7 @@ export default ViewMoreText = React.createClass({
   },
 
   onPressMore(){
-    if (_.isFunction(this.props.moreTextOnPress)) {
+    if (this.props.moreTextOnPress) {
       this.props.moreTextOnPress()
     } else {
       this.setState({
